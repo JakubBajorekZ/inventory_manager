@@ -1,0 +1,7 @@
+/products_manager/nbproject/project.xml
+/products_manager/nbproject/project.properties
+/nbproject/project.xml
+/nbproject/project.properties
+/products_manager/nbproject/private/
+*.pyc
+*.sqlite3

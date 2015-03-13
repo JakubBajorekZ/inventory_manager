@@ -14,7 +14,7 @@ var application_name = 'application';
 
 /* DIRS */
 var assets_dir = 'assets';
-var static_dir = 'staticfiles';
+var static_dir = 'static/products_manager';
 var bower_dir = 'bower_components';
 var sass_dir = assets_dir + '/sass';
 var js_dir = assets_dir + '/js';

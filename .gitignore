@@ -1,3 +1,5 @@
+/products_manager_api/nbproject/project.properties
+/products_manager_api/nbproject/project.xml
 /products_manager/nbproject/project.xml
 /products_manager/nbproject/project.properties
 /nbproject/project.xml
@@ -5,3 +7,6 @@
 /products_manager/nbproject/private/
 *.pyc
 *.sqlite3
+/nbproject/private/
+/.sass-cache/*
+/staticfiles/*

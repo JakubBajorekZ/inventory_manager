@@ -9,5 +9,5 @@
 *.pyc
 *.sqlite3
 /nbproject/private/
-/.sass-cache/*
-/staticfiles/*
+/products_manager/.sass-cache/**
+/products_manager/static/**

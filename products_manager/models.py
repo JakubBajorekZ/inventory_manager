@@ -10,9 +10,9 @@ class Product(models.Model):
   product_group = models.ForeignKey(ProductGroup)
   name = models.CharField(max_length=200)
   description = models.TextField()
-  quantity = models.IntegerField()
-  price = models.DecimalField(max_digits=18, decimal_places=2)
-  value = models.DecimalField(max_digits=18, decimal_places=2)
+  quantity = models.FloatField()
+  price = models.FloatField()
+  value = models.FloatField()
   pub_date = models.DateTimeField()
     
   def __str__(self):

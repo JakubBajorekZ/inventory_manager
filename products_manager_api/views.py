@@ -35,8 +35,8 @@ def rest_response(request, pk, object_class, serializer_class):
     object.delete()
     return Response({'deleted': pk})
   elif (request.method == 'POST'):
-    
+    return Response({'POST': 'OK'})
   elif (request.method == 'PATCH'):
-    
+    return Response({'PATCH': 'OK'})
   else:
     return Response({}, status=status.HTTP_404_NOT_FOUND)

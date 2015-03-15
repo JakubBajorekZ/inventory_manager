@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html ng-app='mainModule'>
+  <head>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'products_manager/css/application.min.css' %}" />
+    <script src="{% static 'products_manager/js/application.packages.min.js' %}"></script>
+    <script src="{% static 'products_manager/js/application.js' %}"></script>
+    <base href="/">
+  </head>
+  <body>
+    <div ui-view='products_manager_index_view'></div>
+  </body>
+</html>

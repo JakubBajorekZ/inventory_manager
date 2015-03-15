@@ -1,0 +1,17 @@
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li ng-repeat="current_group in product_groups">
+              <a ui-sref=".products({product_group_id: '{{current_group.id}}'})">
+                {{current_group.name}}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

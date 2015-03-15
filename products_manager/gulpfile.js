@@ -90,6 +90,7 @@ gulp.task('build-css', function () {
 });
 
 gulp.task('build-angular-templates', function () {
+    gulp.src(ng_template_includes).pipe(gulp.dest(static_dir + '/angular-templates'));
     return gulp.src(ng_template_includes)
         .pipe(angularTemplates({module: 'mainModule'}))
         .pipe(gulp.dest(js_dir + '/angular/tmp'));

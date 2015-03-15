@@ -5,16 +5,30 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from products_manager.models import Product, ProductGroup
-from products_manager_api.serializers import ProductSerializer, ProductGroupSerializer
+from products_manager_api.serializers import ProductSerializer, ProductGroupSerializer, ProductGroupWithProductsSerializer
 
 @api_view(['GET', 'POST', 'DELETE'])  
 
 def product(request, pk):
   return rest_response(request, pk, Product, ProductSerializer)
  
-@api_view(['GET', 'POST', 'DELETE'])    
+@api_view(['GET'])    
   
 def product_group(request, pk):
+  if (request.method == 'GET') and (pk != ''):
+    try:
+      group = ProductGroup.objects.get(pk=pk)
+      serialized_group = ProductGroupWithProductsSerializer(group)
+      return Response(serialized_group.data)
+    except ObjectDoesNotExist:
+      return Response({}, status=status.HTTP_404_NOT_FOUND)
+  elif (request.method == 'GET') and (pk == ''):
+    groups = ProductGroup.objects.all()
+    serialized_groups = ProductGroupSerializer(groups, many=True)
+    return Response(serialized_groups.data)
+  else:
+    return Response({}, status=status.HTTP_404_NOT_FOUND)
+  
   return rest_response(request, pk, ProductGroup, ProductGroupSerializer)
 
 def rest_response(request, pk, object_class, serializer_class):

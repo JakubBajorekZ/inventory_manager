@@ -2,7 +2,7 @@ from rest_framework import serializers
 from products_manager.models import Product, ProductGroup
 
 class ProductSerializer(serializers.Serializer):
-  product_group = serializers.SlugRelatedField(read_only = True, slug_field = 'name')
+  product_group_id = serializers.IntegerField()#serializers.SlugRelatedField(read_only = True, slug_field = 'id')
   name = serializers.CharField()
   description = serializers.CharField()
   quantity = serializers.FloatField()
@@ -11,9 +11,18 @@ class ProductSerializer(serializers.Serializer):
   pub_date = serializers.DateTimeField()
   id = serializers.IntegerField()
   
+  def update(self, instance, validated_data):
+    instance.product_group_id = validated_data.get('product_group', instance.product_group_id) 
+    instance.name = validated_data.get('name', instance.name)
+    instance.description = validated_data.get('description', instance.description)
+    instance.quantity = validated_data.get('quantity', instance.quantity)
+    instance.price = validated_data.get('price', instance.price)
+    instance.save()
+    return instance
+  
   class Meta:
     model = Product
-    fields = ('product_group', 'name', 'description', 'quantity', 'price', 'value', 'pub_date', 'id')
+    fields = ('product_group_id', 'name', 'description', 'quantity', 'price', 'value', 'pub_date', 'id')
   
 class ProductGroupSerializer(serializers.ModelSerializer):
   name = serializers.CharField()

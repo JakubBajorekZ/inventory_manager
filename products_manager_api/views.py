@@ -1,6 +1,7 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.six import BytesIO
 from datetime import datetime
+from django.db.utils import IntegrityError 
 
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -62,7 +63,7 @@ def post_method(request):
   try:
     new_product = Product.objects.create(**parsed_data)
   except IntegrityError:
-    return Response({}, status=status.HTTP_404_NOT_FOUND)
+    return Response({}, status=status.HTTP_400_BAD_REQUEST)
   return Response(parsed_data)
 
 def patch_method(request):
@@ -74,4 +75,4 @@ def patch_method(request):
     received_data.save()
     return Response(parsed_data)
   else:
-    return Response({}, status=status.HTTP_404_NOT_FOUND)
+    return Response({}, status=status.HTTP_400_BAD_REQUEST)

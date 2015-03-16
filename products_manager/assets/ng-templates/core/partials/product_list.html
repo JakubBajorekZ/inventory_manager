@@ -1,6 +1,11 @@
 <div ng-controller="ProductListCtrl">
   <div class='product_list'>
     <div class='product_list_left'>
+      <div class="add_button">
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target=".add_product">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Dodaj
+        </button>
+      </div>
       <ul class="list-group">
         <li class="list-group-item" ng-repeat="current_product in product_group.products">
           <a ui-sref=".product_form({product_id: '{{current_product.id}}'})">

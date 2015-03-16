@@ -25,7 +25,39 @@
       <span class="input-group-addon" id="basic-addon1">Wartość</span>
       <input type="number" class="form-control" placeholder="Wartość" aria-describedby="basic-addon1" ng-model='selected_product.value'>
     </div>
-    <input type="submit" class="btn btn-primary" ng-click="update(selected_product)" value="Zapisz" />
-    <input type="submit" class="btn btn-danger" ng-click="delete(selected_product)" value="Usuń" />
   </form>
+      <!-- Small modal -->
+      <button type="button" class="btn btn-primary" ng-click="update(selected_product)">Zapisz</button>
+      <button type="button" class="btn btn-danger" ng-click="delete(selected_product)">Usuń</button>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target=".add_product">Dodaj</button>
+    <div class="modal fade add_product" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <form name='product_form_add' class="simple-form">
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Nazwa</span>
+                <input name="name_input_add" type="text" class="form-control" placeholder="Nazwa" aria-describedby="basic-addon1" ng-model='new_product.name' required>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Opis</span>
+                <input type="textarea" class="form-control" placeholder="Opis" aria-describedby="basic-addon1" ng-model='new_product.description'>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Ilość</span>
+                <input name="quantity_input_add" type="number" class="form-control" placeholder="Ilość" aria-describedby="basic-addon1" ng-model='new_product.quantity'>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Cena</span>
+                <input name="price_input_add" type="number" class="form-control" placeholder="Cena" aria-describedby="basic-addon1" ng-model='new_product.price'>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Wartość</span>
+                <input type="number" class="form-control" placeholder="Wartość" aria-describedby="basic-addon1" ng-model='new_product.value'>
+              </div>
+              <input type="submit" class="btn btn-primary" ng-click="add(new_product)" value="Zapisz" />
+              <input type="submit" class="btn btn-danger" value="Anuluj" />
+            </form>
+        </div>
+      </div>
+    </div>
 </div>

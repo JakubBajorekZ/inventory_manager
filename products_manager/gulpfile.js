@@ -32,8 +32,8 @@ var packages_includes = [
     bower_dir + '/angular-bootstrap/ui-bootstrap-tpls.js',
     bower_dir + '/angular-translate/angular-translate.min.js',
     bower_dir + '/ng-page-head-meta/ng-page-head-meta.min.js',
-//    bower_dir + '/jquery/dist/jquery.js',
-//    bower_dir + '/bootstrap/dist/js/bootstrap.js',
+    bower_dir + '/jquery/dist/jquery.js',
+    bower_dir + '/bootstrap/dist/js/bootstrap.js',
 ];
 
 /* Include all application related files here, for now we'll include all

@@ -9,7 +9,7 @@ class ProductSerializer(serializers.Serializer):
   price = serializers.FloatField()
   value = serializers.FloatField()
   pub_date = serializers.DateTimeField()
-  id = serializers.IntegerField()
+  id = serializers.IntegerField(read_only = False)
   
   def update(self, instance, validated_data):
     instance.product_group_id = validated_data.get('product_group', instance.product_group_id) 

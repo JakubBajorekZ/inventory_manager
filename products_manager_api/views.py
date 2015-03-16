@@ -1,5 +1,6 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.six import BytesIO
+from datetime import datetime
 
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -29,17 +30,9 @@ def product(request, pk):
     selected_product.delete()
     return Response({'deleted': pk})
   elif (request.method == 'POST'):
-    return Response({'POST': 'OK'})
+    return post_method(request)
   elif (request.method == 'PATCH'):
-    input_stream = BytesIO(request.body)
-    parsed_data = JSONParser().parse(input_stream)
-    base_product = Product.objects.get(pk=parsed_data['id'])
-    received_data = ProductSerializer(base_product, data=parsed_data)
-    if received_data.is_valid():
-      received_data.save()
-      return Response(parsed_data)
-    else:
-      Response({}, status=status.HTTP_404_NOT_FOUND)
+    return patch_method(request)
   else:
     return Response({}, status=status.HTTP_404_NOT_FOUND)
  
@@ -61,3 +54,24 @@ def product_group(request, pk):
     return Response({}, status=status.HTTP_404_NOT_FOUND)
   
   return rest_response(request, pk, ProductGroup, ProductGroupSerializer)
+
+def post_method(request):
+  input_stream = BytesIO(request.body)
+  parsed_data = JSONParser().parse(input_stream)
+  parsed_data['pub_date'] = datetime.now()
+  try:
+    new_product = Product.objects.create(**parsed_data)
+  except IntegrityError:
+    return Response({}, status=status.HTTP_404_NOT_FOUND)
+  return Response(parsed_data)
+
+def patch_method(request):
+  input_stream = BytesIO(request.body)
+  parsed_data = JSONParser().parse(input_stream)
+  base_product = Product.objects.get(pk=parsed_data['id'])
+  received_data = ProductSerializer(base_product, data=parsed_data)
+  if received_data.is_valid():
+    received_data.save()
+    return Response(parsed_data)
+  else:
+    return Response({}, status=status.HTTP_404_NOT_FOUND)

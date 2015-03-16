@@ -9,6 +9,9 @@ angular.module('mainModule')
         },
         deleteProduct: function(id){
           return Restangular.one('products_api/product', id).remove();
+        },
+        addProduct: function(new_product){
+          return Restangular.all('products_api/product').post(new_product);
         }
       }
     }]);

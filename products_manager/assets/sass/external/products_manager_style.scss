@@ -13,3 +13,37 @@ body, html {
 .padding-lg {
   padding:30px;
 }
+
+.product_list {
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.product_list_left {
+  width: 35%;
+  float: left;
+  padding-right: 1%; 
+}
+
+.product_list_right {
+  width: 65%;
+  float: right;
+  padding-left: 1%; 
+}
+
+.input-group{
+  margin-bottom: 1%;
+  width: 100%;
+}
+
+.input-group-addon{
+  width: 30%;
+}
+
+.container{
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-top: 2%;
+}

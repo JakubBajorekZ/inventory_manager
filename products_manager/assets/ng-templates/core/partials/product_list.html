@@ -4,7 +4,16 @@
       <div class="add_button">
         <button type="button" class="btn btn-default" data-toggle="modal" data-target=".add_product">
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Dodaj
-        </button>
+        </button>      
+        <div class="modal fade add_product" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <div form-template data="new_product"></div>
+              <button type="button" class="btn btn-primary" ng-click="add(new_product)">Zapisz</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Anuluj</button>
+            </div>
+          </div>
+        </div>
       </div>
       <ul class="list-group">
         <li class="list-group-item" ng-repeat="current_product in product_group.products">

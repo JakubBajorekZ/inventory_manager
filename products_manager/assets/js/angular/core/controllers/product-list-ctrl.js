@@ -4,7 +4,33 @@ angular.module('mainModule')
       '$state',
       '$stateParams',
       'ProductGroupFactory',
-      function ($scope, $state, $stateParams, ProductGroupFactory) {
+      'ProductFactory',
+      function ($scope, $state, $stateParams, ProductGroupFactory, ProductFactory) {
+        
+      product_template = {
+        name: '---',
+        description: '---',
+        quantity: 0,
+        price: 0
+      };
+      
+      $scope.new_product = product_template;
+      
+      $scope.$on('$viewContentLoaded', function(event){
+      });
+      
+      $scope.$watch('new_product', function(new_value, old_value){
+        $scope.compute_total_value($scope.new_product);
+      }, true);
+         
+      $scope.add = function(new_product) {
+        new_product.product_group_id = $stateParams.product_group_id;
+        ProductFactory.addProduct(new_product).then(function (new_product) {
+          $scope.new_product = product_template;
+          $scope.refresh();
+          alert('Dodano produkt');
+        });
+      };   
          
       $scope.refresh = function(){
         state = $state.current.name;

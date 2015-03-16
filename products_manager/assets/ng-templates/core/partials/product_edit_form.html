@@ -1,15 +1,5 @@
 <div data-ng-controller="ProductFormCtrl">
   <div form-template data="selected_product"></div>
   <button type="button" class="btn btn-primary" ng-click="update(selected_product)">Zapisz</button>
-  <button type="button" class="btn btn-danger" ng-click="delete(selected_product)">Usuń</button>     
-  <button type="button" class="btn btn-success" data-toggle="modal" data-target=".add_product">Dodaj</button>
-    <div class="modal fade add_product" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-          <div form-template data="new_product"></div>
-          <button type="button" class="btn btn-primary" ng-click="add(new_product)">Zapisz</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Anuluj</button>
-        </div>
-      </div>
-    </div>
+  <button type="button" class="btn btn-danger" ng-click="delete(selected_product)">Usuń</button>    
 </div>

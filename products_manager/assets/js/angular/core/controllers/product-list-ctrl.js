@@ -16,12 +16,11 @@ angular.module('mainModule')
       
       $scope.new_product = product_template;
       
-      $scope.$on('$viewContentLoaded', function(event){
+      $scope.$on('$stateChangeSuccess', function(event){
+        $scope.$watch('new_product', function(new_value, old_value){
+            $scope.compute_total_value($scope.new_product);
+        }, true);
       });
-      
-      $scope.$watch('new_product', function(new_value, old_value){
-        $scope.compute_total_value($scope.new_product);
-      }, true);
          
       $scope.add = function(new_product) {
         new_product.product_group_id = $stateParams.product_group_id;

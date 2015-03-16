@@ -1,5 +1,8 @@
   <div class="alert alert-danger" role="alert" ng-show="!product_form.$valid">
     <div ng-show="product_form.name_input.$error.required">Nazwa - Pole nie może być puste</div>
+    <div ng-show="product_form.description_input.$error.required">Opis - Pole nie może być puste</div>
+    <div ng-show="product_form.quantity_input.$error.required">Ilość - Pole nie może być puste</div>
+    <div ng-show="product_form.price_input.$error.required">Cena - Pole nie może być puste</div> 
     <div ng-show="product_form.quantity_input.$error.number">Ilość - Wymagana wartość liczbowa</div>
     <div ng-show="product_form.price_input.$error.number">Cena - Wymagana wartość liczbowa</div>
   </div>
@@ -10,18 +13,18 @@
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="basic-addon1">Opis</span>
-      <input type="textarea" class="form-control" placeholder="Opis" aria-describedby="basic-addon1" ng-model='selected_product.description'>
+      <input name="description_input" type="text" class="form-control" placeholder="Opis" aria-describedby="basic-addon1" ng-model='selected_product.description' required>
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="basic-addon1">Ilość</span>
-      <input name="quantity_input" type="number" class="form-control" placeholder="Ilość" aria-describedby="basic-addon1" ng-model='selected_product.quantity'>
+      <input name="quantity_input" type="number" class="form-control" placeholder="Ilość" aria-describedby="basic-addon1" ng-model='selected_product.quantity' required>
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="basic-addon1">Cena</span>
-      <input name="price_input" type="number" class="form-control" placeholder="Cena" aria-describedby="basic-addon1" ng-model='selected_product.price'>
+      <input name="price_input" type="number" class="form-control" placeholder="Cena" aria-describedby="basic-addon1" ng-model='selected_product.price' required>
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="basic-addon1">Wartość</span>
-      <input type="number" class="form-control" placeholder="Wartość" aria-describedby="basic-addon1" ng-model='selected_product.value'>
+      <input name="value_input" type="number" class="form-control" placeholder="Wartość" aria-describedby="basic-addon1" ng-model='selected_product.value' readonly>
     </div>
   </form>

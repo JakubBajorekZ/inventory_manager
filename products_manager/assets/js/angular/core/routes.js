@@ -8,13 +8,6 @@ angular.module('mainModule').config(function($stateProvider) {
         }
       }
     })
-    /*
-    .state('index.product_groups',{
-      url: "/product_groups",
-      views: {
-        "product_group_list": { templateUrl: "static/products_manager/angular-templates/core/partials/product_group_list.html" }
-      }
-    })*/
     
     .state('index.products',{
       url: "/products/:product_group_id",
@@ -26,4 +19,13 @@ angular.module('mainModule').config(function($stateProvider) {
       }
     })
 
+    .state('index.products.product_form',{
+      url: "/products/:product_group_id/product_edit_form/:product_id",
+      views: {
+        "product_edit_form": { 
+          templateUrl: "static/products_manager/angular-templates/core/partials/product_edit_form.html",
+          controller: 'ProductFormCtrl'
+        }
+      }
+    })
 });

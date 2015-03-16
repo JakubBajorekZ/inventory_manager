@@ -1,7 +1,16 @@
 <div ng-controller="ProductListCtrl">
-  <ul class="list-group">
-    <li class="list-group-item" ng-repeat="current_product in product_group.products">
-      {{current_product.name}}
-    </li>
-  </ul>
+  <div class='product_list'>
+    <div class='product_list_left'>
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="current_product in product_group.products">
+          <a ui-sref=".product_form({product_id: '{{current_product.id}}'})">
+            {{current_product.name}}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class='product_list_right'>
+      <div ui-view='product_edit_form'></div>
+    </div>
+  </div>
 </div>

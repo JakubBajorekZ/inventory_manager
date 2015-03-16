@@ -6,6 +6,9 @@ angular.module('mainModule')
         },
         updateProduct: function(updated_product){
           return Restangular.all('products_api/product').patch(updated_product);
+        },
+        deleteProduct: function(id){
+          return Restangular.one('products_api/product', id).remove();
         }
       }
     }]);

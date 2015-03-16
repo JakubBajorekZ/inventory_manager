@@ -19,4 +19,11 @@ angular.module('mainModule')
         });
       };
       
+      $scope.delete = function(deleted_product) {
+        ProductFactory.deleteProduct(deleted_product.id).then(function (deleted_product) {
+          $state.go('index.products', { product_group_id: $stateParams.product_group_id });
+          $scope.$parent.refresh();
+        });
+      };
+      
     }]);

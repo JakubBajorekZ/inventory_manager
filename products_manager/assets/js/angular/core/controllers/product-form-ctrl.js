@@ -6,9 +6,13 @@ angular.module('mainModule')
       'ProductFactory',
       function ($scope, $state, $stateParams, ProductFactory) {
       
-      $scope.$watch('selected_product', function(new_value, old_value){
-        $scope.compute_total_value($scope.selected_product);
-      }, true);
+      $scope.$on('$stateChangeSuccess', function(event){
+        $scope.$watch('selected_product', function(new_value, old_value){
+          if ($scope.selected_product){
+            $scope.compute_total_value($scope.selected_product);
+          }
+        }, true);
+      });
       
       if($state.current.name == 'index.products.product_form'){
         ProductFactory.getProduct($stateParams.product_id).then(function (selected_product) {

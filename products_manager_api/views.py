@@ -62,7 +62,7 @@ def post_method(request):
   parsed_data['pub_date'] = datetime.now()
   try:
     new_product = Product.objects.create(**parsed_data)
-  except IntegrityError:
+  except (IntegrityError, ValueError):
     return Response({}, status=status.HTTP_400_BAD_REQUEST)
   return Response(parsed_data)
 

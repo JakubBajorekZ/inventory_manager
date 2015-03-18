@@ -1,0 +1,28 @@
+[
+  {
+    "model": "products_manager.Product",
+    "pk": 1,
+    "fields": {
+      "product_group" : "1",
+      "name": "Test product 1",
+      "description" : "Example description 1",
+      "quantity" : "10",
+      "price" : "4",
+      "value" : "40",
+      "pub_date" : "2011-09-01T10:20:30Z"
+    }
+  },
+  {
+    "model": "products_manager.Product",
+    "pk": 2,
+    "fields": {
+      "product_group" : "2",
+      "name": "Test product 2",
+      "description" : "Example description 2",
+      "quantity" : "5",
+      "price" : "3",
+      "value" : "15",
+      "pub_date" : "2015-07-13T08:11:27Z"
+    }
+  }
+]

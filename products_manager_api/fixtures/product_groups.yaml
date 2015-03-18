@@ -1,0 +1,16 @@
+[
+  {
+    "model": "products_manager.ProductGroup",
+    "pk": 1,
+    "fields": {
+      "name": "Test group 1"
+    }
+  },
+  {
+    "model": "products_manager.ProductGroup",
+    "pk": 2,
+    "fields": {
+      "name": "Test group 2"
+    }
+  }
+]
